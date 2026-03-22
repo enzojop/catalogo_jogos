@@ -1,0 +1,36 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# PHP / Apache temp
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Environment / secrets (if added later)
+.env
+.env.*
+!.env.example
+
+# Dependency folders (if used in future)
+vendor/
+node_modules/
+
+# Test / coverage
+coverage/
+.phpunit.result.cache
+
+# Uploaded files (optional)
+# Descomente se quiser ignorar capas enviadas pelos usuarios:
+# src/images/*
+# !src/images/.gitkeep

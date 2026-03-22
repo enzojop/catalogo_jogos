@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Times", "Times New Roman", "Georgia", serif;
+    color: #f5f5f5;
+    background:
+        radial-gradient(circle at 12% 18%, rgba(255, 69, 0, 0.25) 0%, rgba(255, 69, 0, 0) 35%),
+        radial-gradient(circle at 88% 82%, rgba(255, 120, 0, 0.2) 0%, rgba(255, 120, 0, 0) 40%),
+        #080808;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.login-card {
+    width: min(460px, 94vw);
+    padding: 34px 32px;
+    border-radius: 14px;
+    border: 1px solid #3a3a3a;
+    background: linear-gradient(150deg, rgba(27, 27, 27, 0.97), rgba(16, 16, 16, 0.97));
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.55);
+}
+
+.login-card h1 {
+    margin: 0;
+    font-size: 2.1rem;
+    color: #ff5a1f;
+    text-align: center;
+}
+
+.subtitle {
+    margin: 10px 0 24px;
+    text-align: center;
+    color: #d5d5d5;
+    font-size: 1.05rem;
+}
+
+.login-form {
+    display: grid;
+    gap: 10px;
+}
+
+.login-form label {
+    font-size: 1.02rem;
+    color: #ffb18f;
+}
+
+.login-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #4a4a4a;
+    background: #141414;
+    color: #f5f5f5;
+    outline: none;
+    margin-bottom: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-form input:focus {
+    border-color: #ff5a1f;
+    box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.22);
+}
+
+.login-form button {
+    margin-top: 8px;
+    padding: 12px 16px;
+    border: 1px solid #ff5a1f;
+    border-radius: 9px;
+    background: #ff5a1f;
+    color: #ffffff;
+    font-size: 1.04rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.login-form button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+.login-form select,
+.login-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #4a4a4a;
+    background: #141414;
+    color: #f5f5f5;
+    outline: none;
+    margin-bottom: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: "Times", "Times New Roman", "Georgia", serif;
+    font-size: 1rem;
+}
+
+.login-form select:focus,
+.login-form textarea:focus {
+    border-color: #ff5a1f;
+    box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.22);
+}
+
+.login-form select option {
+    background: #1d1d1d;
+    color: #f5f5f5;
+}
+
+@media (max-width: 560px) {
+    .login-card {
+        padding: 26px 20px;
+    }
+
+    .login-card h1 {
+        font-size: 1.8rem;
+    }
+}

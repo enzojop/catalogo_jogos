@@ -1,0 +1,87 @@
+//CRIAR O BANCO DE DADOS:
+
+create database bd_catalogo default character set utf8 collate utf8_general_ci;
+
+//CRIAR A TABELA USUARIOS:
+
+create table usuarios (
+usuario varchar(10) not null,
+nome varchar(30) not null,
+senha varchar(60) not null,
+tipo varchar(10) not null default 'editor',
+primary key(usuario)
+) engine=InnoDB default charset=utf8;
+
+// CRIAR A TABELA DE GENEROS DOS JOGOS:
+
+create table generos (
+id int (11) not null,
+genero varchar(20) not null,
+primary key(id)
+) engine=InnoDB default charset=utf8;
+
+// CRIA A TABELA DE PRODUTORA:
+
+create table produtora (
+id int(11) not null,
+produtora varchar(20) not null,
+pais varchar(20) not null,
+primary key(id)
+) engine=InnoDB default charset=utf8;
+
+// CRIAR A TABELA JOGOS COM SUAS CHAVES ESTRANGEIRAS:
+
+create table jogos(
+id int(11) not null,
+nome varchar(40) not null,
+genero int(11) not null,
+produtora int(11) not null,
+descricao text not null,
+nota decimal(4,2) default null,
+primary key(id),
+foreign key(genero) references generos(id),
+foreign key(produtora) references produtora(id)
+) engine=InnoDB default charset=utf8;
+
+
+
+//Inserir produtora na tabela produtora:
+
+INSERT INTO produtora (id, produtora, pais) VALUES
+(4, 'Sony Interactive Entertainment', 'Japão'),
+(5, 'Electronic Arts (EA)', 'EUA'),
+(6, 'Ubisoft', 'França'),
+(7, 'Capcom', 'Japão'),
+(8, 'Rockstar Games', 'EUA'),
+(9, 'CD Projekt Red', 'Polônia'),
+(10, 'Square Enix', 'Japão'),
+(11, 'Bandai Namco', 'Japão'),
+(12, 'Valve', 'EUA');
+
+
+//Inserir o jogos na tabela jogos:
+
+INSERT INTO jogos (id, nome, genero, produtora, descricao, nota) VALUES
+(1, 'Elden Ring', 5, 11, 'Um RPG de ação desafiador em mundo aberto.', 9.8),
+(2, 'Super Mario Wonder', 4, 3, 'Aventura clássica de plataforma do Mario.', 9.5),
+(3, 'Halo Infinite', 10, 1, 'Lute como Master Chief neste FPS lendário.', 8.7),
+(4, 'League of Legends', 7, 2, 'O maior jogo de estratégia MOBA do mundo.', 9.0),
+(5, 'Resident Evil Village', 3, 7, 'Terror de sobrevivência com visual incrível.', 8.9),
+(6, 'The Legend of Zelda: TotK', 2, 3, 'Exploração épica pelos céus e terras de Hyrule.', 10.0),
+(7, 'Forza Horizon 5', 8, 1, 'Corridas em um festival no México.', 9.2),
+(8, 'Street Fighter 6', 9, 7, 'O rei dos jogos de luta está de volta.', 8.8),
+(9, 'Assassin\'s Creed Mirage', 2, 6, 'Aventura furtiva ambientada em Bagdá.', 8.0),
+(10, 'Final Fantasy VII Rebirth', 5, 10, 'Uma jornada épica e emocionante de RPG.', 9.4);
+
+
+// Ele usa o JOIN para "unir" as três tabelas (jogos, generos e produtoras) e mostrar os nomes escritos em vez de apenas os números dos IDs.
+SELECT 
+    j.id, 
+    j.nome, 
+    g.genero, 
+    p.produtora, 
+    j.descricao, 
+    j.nota 
+FROM jogos j
+JOIN generos g ON j.genero = g.id
+JOIN produtora p ON j.produtora = p.id;
